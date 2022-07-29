@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+   selector: 'app-root',
+   templateUrl: './app.component.html',
+   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'angularapp3.1';
+export class AppComponent implements OnInit {
+   constructor() {}
+
+   ngOnInit(): void {}
+
+   scrollToTop(): void {
+      window.scrollTo({ behavior: 'smooth', top: 0, left: 0 });
+   }
 }

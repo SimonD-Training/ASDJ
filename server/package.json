@@ -4,10 +4,10 @@
 	"description": "Just another express application.",
 	"main": "app.js",
 	"scripts": {
-		"start": "node app.js",
+		"start": "node app.js"
 	},
 	"keywords": [],
-	"author": Simon Maxwell,
+	"author": "Simon Maxwell",
 	"license": "ISC",
 	"type": "commonjs",
 	"dependencies": {
@@ -15,11 +15,11 @@
 		"dotenv": "^16.0.0",
 		"express": "^4.18.1",
 		"express-session": "^1.17.3",
-		"mongoose": "^6.4.6",
+		"mongoose": "^6.4.6"
 	},
 	"devDependencies": {
 		"concurrently": "^7.2.1",
-		"nodemon": "^2.0.16",
+		"nodemon": "^2.0.16"
 	},
 	"engines": {
 		"node": "^16.13.2",
