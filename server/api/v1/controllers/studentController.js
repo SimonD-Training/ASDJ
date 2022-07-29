@@ -4,53 +4,47 @@ exports.getAllStudents = async (req, res) => {
   try {
     const students = await Student.find();
     res.status(200).json({
-        status: 'Success',
-        results: students.length,
-        data: {
-        students
-        }
+      status: "Success",
+      results: students.length,
+      data: students,
     });
   } catch (error) {
     res.status(500).json({
-        status: "Failed to create student document.",
-        message: error
+      status: "Failed to create student document.",
+      message: error,
     });
   }
-}
+};
 
 exports.createStudent = async (req, res) => {
   try {
-    const newStudent = await Student.create(req.body)
+    const newStudent = await Student.create(req.body);
     res.status(201).json({
-      status: 'success',
-      data: {
-        student: newStudent
-      }
-    })
+      status: "success",
+      data: newStudent,
+    });
   } catch (err) {
     res.status(500).json({
-      status: 'Failed to create record.',
-      message: err
-    })
+      status: "Failed to create record.",
+      message: err,
+    });
   }
-}
+};
 
 exports.getStudentById = async (req, res) => {
   try {
-    const student = await Student.find({ _id: req.params.id })
+    const student = await Student.find({ _id: req.params.id });
     res.status(200).json({
-      status: 'Success',
-      data: {
-        student
-      }
+      status: "Success",
+      data: student,
     });
   } catch (err) {
     res.status(404).json({
       status: "Failed to find any matching record.",
-      message: err
-    })
+      message: err,
+    });
   }
-}
+};
 // exports.updateStudent = (req, res) => {
 //   res.status(200).json({
 //     status: 'success',
@@ -62,36 +56,37 @@ exports.getStudentById = async (req, res) => {
 
 exports.updateStudent = async (req, res) => {
   try {
-    const editStudent = await Student.findOneAndUpdate({_id: req.params.id}, req.body)
+    const editStudent = await Student.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body
+    );
     res.status(200).json({
-      status:"Success",
+      status: "Success",
       data: {
         old: editStudent,
-        new: req.body
-      }
-    })
+        new: req.body,
+      },
+    });
   } catch (err) {
     res.status(404).json({
       status: "Failed to find any matching record.",
-      message: err
-    })
+      message: err,
+    });
   }
 };
 
 exports.deleteStudent = async (req, res) => {
   try {
-    const student = await Student.deleteOne({ _id: req.params.id })
+    const student = await Student.deleteOne({ _id: req.params.id });
     res.status(200).json({
-      status: 'Success',
-      data: {
-        student: student
-      }
-    })
+      status: "Success",
+      data: student,
+    });
   } catch (err) {
     res.status(404).json({
       status: "Fail",
-      message: err
-    })
+      message: err,
+    });
   }
 };
 
@@ -104,7 +99,6 @@ exports.deleteStudent = async (req, res) => {
 
 //   });
 // }
-
 
 // try {
 //   const student = await Student.delete() {
