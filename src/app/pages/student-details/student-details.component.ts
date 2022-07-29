@@ -32,8 +32,8 @@ export class StudentDetailsComponent implements OnInit {
       this.studentId = routerInfo.params.id;
 
       this.studentService.getStudent(this.studentId).subscribe({
-        next: (resp: Student) => {
-          this.student = resp;
+        next: (resp: Student | null) => {
+          if (resp) this.student = resp;
           this.isLoading = false;
         },
         error: (err) => console.log(err),
